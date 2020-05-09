@@ -9,7 +9,9 @@ const app = express();
 conectarDB();
 
 // Habilitar CORS
-app.use(cors());
+//app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
+app.options("*", cors());
 
 // Habilitar express.json
 app.use(express.json({ extended: true })); // Con esta instrucción hay que enviar el header de la petición como application/json
